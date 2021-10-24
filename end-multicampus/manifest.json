@@ -1,0 +1,20 @@
+{
+    "name": "Video Go To END",
+    "action": {},
+    "manifest_version": 3,
+    "version": "0.1",
+    "description": "Online video for education is so boring, so you click this.",
+    "permissions": ["scripting", "activeTab", "tabs", "webNavigation"], //*"], //, "http://*/", "https://*/", ""],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            //Set your address you want the extension will work in mataches!!!
+            "matches": ["https://*.multicampus.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "host_permissions": ["*://*.multicampus.com/"]
+}
