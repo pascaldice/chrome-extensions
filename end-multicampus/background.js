@@ -1,3 +1,6 @@
+/**
+ * when click extension button
+ */
 chrome.action.onClicked.addListener(async (tab) => {
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -8,13 +11,9 @@ chrome.action.onClicked.addListener(async (tab) => {
     });
 });
 
-// chrome.tabs.onCreated.addListener(async (tab) => {
-//     chrome.scripting.executeScript({
-//         target: { tabId: tab.id },
-//         files: ["content.js"],
-//     });
-// });
-
+/**
+ * when open video page as popup
+ */
 chrome.webNavigation.onBeforeNavigate.addListener((details) => {
     chrome.tabs.get(details.tabId, (details) => {
         console.log(details);
@@ -27,14 +26,4 @@ chrome.webNavigation.onBeforeNavigate.addListener((details) => {
             });
         }
     });
-    // if (
-    //     details.url &&
-    //     details.url.indexOf("https://lcb.multicampus.com/em/cusStudy") === 0 &&
-    //     !PAGE_NAVIGATION[details.tabId]
-    // ) {
-    //     PAGE_NAVIGATION[details.tabId] = details.url;
-    //     const timeoutId = setTimeout(() => {
-    //         delete PAGE_NAVIGATION[details.tabId];
-    //     }, 5000);
-    // }
 });

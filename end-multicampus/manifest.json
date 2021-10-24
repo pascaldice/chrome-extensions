@@ -1,9 +1,9 @@
 {
-    "name": "Video Go To END",
+    "name": "End of Multicampus",
     "action": {},
     "manifest_version": 3,
     "version": "0.1",
-    "description": "Online video for education is so boring, so you click this.",
+    "description": "Destroy Multicampus Online Eduation",
     "permissions": ["scripting", "activeTab", "tabs", "webNavigation"], //*"], //, "http://*/", "https://*/", ""],
     "background": {
         "service_worker": "background.js"
