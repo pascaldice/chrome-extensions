@@ -14,9 +14,19 @@ chrome.action.onClicked.addListener(async (tab) => {
 //         files: ["content.js"],
 //     });
 // });
-const PAGE_NAVIGATION = {};
+
 chrome.webNavigation.onBeforeNavigate.addListener((details) => {
-    console.log(details);
+    chrome.tabs.get(details.tabId, (details) => {
+        console.log(details);
+        if (
+            details.index === 0 &&
+            details.pendingUrl.indexOf("https://learning.multicampus.com/lrnhm/body/common/lrnhmGetMethod_L") === 0
+        ) {
+            chrome.tabs.create({
+                url: details.pendingUrl,
+            });
+        }
+    });
     // if (
     //     details.url &&
     //     details.url.indexOf("https://lcb.multicampus.com/em/cusStudy") === 0 &&
@@ -26,8 +36,5 @@ chrome.webNavigation.onBeforeNavigate.addListener((details) => {
     //     const timeoutId = setTimeout(() => {
     //         delete PAGE_NAVIGATION[details.tabId];
     //     }, 5000);
-    //     chrome.tabs.create({
-    //         url: details.url,
-    //     });
     // }
 });
