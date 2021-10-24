@@ -1,5 +1,5 @@
-console.log(window);
-console.log(window.location.href);
+// console.log(window);
+// console.log(window.location.href);
 // window.onload = () => {
 //     // setInterval(() => {
 //     // window.open = ((open) => {
